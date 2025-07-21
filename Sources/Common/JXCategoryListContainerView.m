@@ -10,13 +10,6 @@
 #import <objc/runtime.h>
 #import "RTLManager.h"
 
-@interface JXCategoryListContainerViewController : UIViewController
-@property (copy) void(^viewWillAppearBlock)(void);
-@property (copy) void(^viewDidAppearBlock)(void);
-@property (copy) void(^viewWillDisappearBlock)(void);
-@property (copy) void(^viewDidDisappearBlock)(void);
-@end
-
 @implementation JXCategoryListContainerViewController
 - (void)dealloc
 {
@@ -34,12 +27,12 @@
     self.viewDidAppearBlock();
 }
 - (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
     self.viewWillDisappearBlock();
+    [super viewWillDisappear:animated];
 }
 - (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
     self.viewDidDisappearBlock();
+    [super viewDidDisappear:animated];
 }
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods { return NO; }
 @end

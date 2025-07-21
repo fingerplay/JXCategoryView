@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "JXCategoryViewDefines.h"
 #import "JXCategoryBaseView.h"
+
+@interface JXCategoryListContainerViewController : UIViewController
+@property (copy) void(^viewWillAppearBlock)(void);
+@property (copy) void(^viewDidAppearBlock)(void);
+@property (copy) void(^viewWillDisappearBlock)(void);
+@property (copy) void(^viewDidDisappearBlock)(void);
+@end
+
 @class JXCategoryListContainerView;
 
 /**
@@ -112,6 +120,7 @@ typedef NS_ENUM(NSUInteger, JXCategoryListContainerType) {
  */
 @property (nonatomic, assign) CGFloat initListPercent;
 @property (nonatomic, assign) BOOL bounces; //默认NO
+@property (nonatomic, strong,readonly) JXCategoryListContainerViewController *containerVC;
 
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
